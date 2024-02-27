@@ -6,6 +6,7 @@
 <h1>Using language and Frameworks!</h1>
 #NodeJS
 #ReactJS
+#ViteJS
 #Tailwind
 #Sequelize
 #Express
