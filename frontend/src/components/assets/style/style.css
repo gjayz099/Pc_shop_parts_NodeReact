@@ -380,7 +380,6 @@ ul li a{
     padding: .2rem 0;
     color: var(--whiteColor);
     font-family: var(--fontParg);
-
 }
 .content_footer_item .footer-widget li a{
     font-size: .9rem;
@@ -460,12 +459,8 @@ ul li a{
     width: 200px;
     height: 200px;
 }
-
-
-
 .pricing_menu_price_qty  h4 span{
     font-style: italic;
-
 }
 .pricing_menu_price_qty h4:nth-child(2){
     opacity: .7;
@@ -476,9 +471,19 @@ ul li a{
 .pricing_menu_productname h1{
     font-family: var(--fontParg);
 }
-/* .pricing_shop_sidebar_tittle{
-    
-} */
+.pricing_shop_sidebar_tittle h1{
+    font-size: 1.8rem;
+    font-family: var(--fontTitle);
+    font-weight: 700;
+    color: var(--blackColor);
+}
+.pricing_shop_sidebar_button{
+    display: grid;
+}
+.pricing_shop_sidebar_button a{
+    font-family: var(--fontParg);
+    font-size: .9rem;
+}
 
 
 

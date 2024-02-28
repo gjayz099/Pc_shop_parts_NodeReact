@@ -43,33 +43,33 @@ function Pricing_Item() {
               <div className="pricing_shop_sidebar_section">
 
                 <div className="search_pricing flex items-center">
-                    <input className="outline-none bg-transparent px-3" type="search" id="movie" name="q" placeholder="search_icon"/>
+                    <input className="outline-none bg-transparent px-3" type="search" id="movie" name="q" placeholder="Search Parts"/>
                     <BiSearchAlt2 className="search_icon opacity-70 cursor-pointer size-6 "/>
                 </div>
 
                 <div className="pricing_shop_sidebar_items">
 
-                    <div className="pricing_shop_sidebar_tittle">
-                      <h1>Categories</h1>
+                    <div className="pricing_shop_sidebar_tittle mt-5 mb-3">
+                      <h1 className="italic">Categories</h1>
                     </div>
                    <div className='pricing_shop_sidebar_button'>
-                      <a href="">ALL</a>
-                      <a href="">PROCESSORS</a>
-                      <a href="">MOTHERBOARDS</a>
-                      <a href="">GRAPICS CARDS</a>
-                      <a href="">HARD DRIVES / SSD</a>
-                      <a href="">MEMORY / RAM</a>
-                      <a href="">POWER SUPPLIES</a>
-                      <a href="">COMPUTER CASE</a>
+                      <a className="py-1" href="">ALL</a>
+                      <a className="py-1" href="">PROCESSORS</a>
+                      <a className="py-1" href="">MOTHERBOARDS</a>
+                      <a className="py-1" href="">GRAPICS CARDS</a>
+                      <a className="py-1" href="">HARD DRIVES / SSD</a>
+                      <a className="py-1" href="">MEMORY / RAM</a>
+                      <a className="py-1" href="">POWER SUPPLIES</a>
+                      <a className="py-1" href="">COMPUTER CASE</a>
                    </div>
 
-                   <div className="pricing_shop_sidebar_tittle">
-                      <h1>Pricing</h1>
+                   <div className="pricing_shop_sidebar_tittle mt-5 mb-3">
+                      <h1 className="italic">Pricing</h1>
                     </div>
                    <div className='pricing_shop_sidebar_button'>
-                      <a href="">&#8369;100 - &#8369;10,000</a>
-                      <a href="">&#8369;10,000 - &#8369;20,000</a>
-                      <a href="">&#8369;20,000 - &#8369;30,000</a>
+                      <a className="py-1" href="">&#8369;100 - &#8369;10,000</a>
+                      <a className="py-1" href="">&#8369;10,000 - &#8369;20,000</a>
+                      <a className="py-1" href="">&#8369;20,000 - &#8369;30,000</a>
                    </div>
                 </div>
               </div>
