@@ -359,6 +359,15 @@ ul li a{
 }
 .contact-details li a{
     font-family: var(--fontParg);
+    color: var(--whiteColor);
+
+}
+.contact-details .footer_social .sofooter_social_item{
+    font-size: 2rem;
+    color: var(--whiteColor);
+}
+.content_footer_item{
+    padding-left: 2rem;
 }
 .content_footer_item .footer-widget-title{
     font-size: 1.5rem;
@@ -387,4 +396,90 @@ ul li a{
         grid-template-columns: repeat(3, 4fr);
     }
 }
+@media (max-width: 959px) {
+    .content_footer_row{
+        grid-template-columns: repeat(2, 4fr);
+    }
+}
+@media (max-width: 719px) {
+    .content_footer_row{
+        padding: 2rem 0rem ;
+    }
+}
+@media (max-width: 539px) {
+    .content_footer_row{
+        grid-template-columns: repeat(1, 4fr);
+    }
+}
+
+/* All Header */
+.all_header{
+    max-width: 100%;
+    height: 50vh;
+    background: radial-gradient(rgba(0, 0, 0, 0.7),rgba(0,0,0,.7)),url('../img/footer_image.jpg');
+    background-position: center;
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+}
+.content_all_header h1{
+    font-family: var(--fontTitle);
+    font-size: 3rem;
+    color: var(--whiteColor);
+    font-weight: 700;
+}
+
+
+
+/* Pricing */
+.pricing_shop_tittle h1{
+    text-align: center;
+    font-family: var(--fontTitle);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--blackColor);
+}
+.pricing_shop_row{
+    display: grid;
+    grid-template-columns: .6fr 2.5fr;
+    gap: 1.9rem;
+}
+
+.search_pricing{
+    padding: .5rem 1rem;
+    width: 275px;
+    border: 1px solid  #00000088;
+}
+.pricing_shop_menubar_section_row{
+    grid-template-columns: repeat(3, 1fr);
+}
+.pricing_shop_menubar_section_item{
+    height: 400px;
+
+}
+.pricing_shop_menubar_section_item .pricing_menu_img img{
+    width: 200px;
+    height: 200px;
+}
+
+
+
+.pricing_menu_price_qty  h4 span{
+    font-style: italic;
+
+}
+.pricing_menu_price_qty h4:nth-child(2){
+    opacity: .7;
+}
+.pricing_menu_price_qty h4:nth-child(2) span{
+    font-weight: 1000;
+}
+.pricing_menu_productname h1{
+    font-family: var(--fontParg);
+}
+/* .pricing_shop_sidebar_tittle{
+    
+} */
+
+
+
 

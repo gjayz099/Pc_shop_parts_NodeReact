@@ -7,9 +7,7 @@ function Home_Ratings() {
 
 
     useEffect(() => {
-
-
-
+        
         async function fetchData() {
             try{
                 const response = await fetch('http://localhost:3000/pcparts', {
@@ -38,7 +36,7 @@ function Home_Ratings() {
 
     return (
         <section className="home_ratings_container my-24">
-            <div className="home_ratings_content mx-40 gap-20 grid grid-cols-4 text-center">
+            <div className="home_ratings_content mx-10 gap-20 grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 text-center lg:mx-40 md:mx-30">
             {ratingsData.map((item, id) => {
                 return(
                     <div key={id} className="home_ratings_row m-auto items-center">
