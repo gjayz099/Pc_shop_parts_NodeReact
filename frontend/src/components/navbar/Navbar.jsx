@@ -41,10 +41,10 @@ function Navbar() {
                 <Link onClick={menuclickMenu} className='mx-3' to='/pricing' >Pricing</Link>
             </li>
             <li>
-                <Link onClick={menuclickMenu} className='mx-3' >Team</Link>
+                <Link onClick={menuclickMenu} className='mx-3' to='/team' >Team</Link>
             </li>
             <li>
-                <Link onClick={menuclickMenu} className='mx-3' >Contact</Link>
+                <Link onClick={menuclickMenu} className='mx-3' to='/contact' >Contact</Link>
             </li>
             <li>
                 <Link onClick={menuclickMenu} className='mx-3' >Login</Link>
