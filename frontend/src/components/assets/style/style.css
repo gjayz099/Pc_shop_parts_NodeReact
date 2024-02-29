@@ -448,13 +448,98 @@ ul li a{
     width: 275px;
     border: 1px solid  #00000088;
 }
+.shop_pricing_loading{
+    min-height: 105vh;
+}
+.loader {
+    --dim: 3rem;
+    width: var(--dim);
+    height: var(--dim);
+    position: relative;
+    animation: spin988 2s linear infinite;
+    
+  }
+  
+.loader .circle {
+    --color: #333;
+    --dim: 1.2rem;
+    width: var(--dim);
+    height: var(--dim);
+    background-color: var(--color);
+    border-radius: 50%;
+    position: absolute;
+}
+  
+.loader .circle:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+  
+.loader .circle:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+  
+.loader .circle:nth-child(3) {
+    bottom: 0;
+    left: 0;
+}
+  
+.loader .circle:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+  
+@keyframes spin988 {
+    0% {
+      transform: scale(1) rotate(0);
+    }
+  
+    20%, 25% {
+      transform: scale(1.3) rotate(90deg);
+    }
+  
+    45%, 50% {
+      transform: scale(1) rotate(180deg);
+    }
+  
+    70%, 75% {
+      transform: scale(1.3) rotate(270deg);
+    }
+  
+    95%, 100% {
+      transform: scale(1) rotate(360deg);
+    }
+  }
+
+.loading_pricing_shop{
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 .pricing_shop_menubar_section_row{
     grid-template-columns: repeat(3, 1fr);
-    min-height: 110vh;
+    min-height: 105vh;
 }
 .pricing_shop_menubar_section_item{
     height: 400px;
-
+    margin-top: 0;
 }
 .pricing_shop_menubar_section_item .pricing_menu_img img{
     width: 200px;
@@ -488,7 +573,8 @@ ul li a{
 
 
 .pricing_shop_next_page .pricing_icon_np{
-    font-size: 3rem;
+    font-size: 2.3rem;
+    opacity: .9;
 }
 
 

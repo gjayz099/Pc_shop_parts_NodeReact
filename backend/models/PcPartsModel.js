@@ -10,6 +10,14 @@ const PcParts = sequelize.define('pcparts', {
             notEmpty: true
         }
     },
+
+    brandname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate:{
+            notEmpty: true
+        }
+    },
     productname: {
         type: DataTypes.STRING,
         allowNull: false,

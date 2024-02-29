@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react"
 import { BiSearchAlt2, BiChevronLeft , BiChevronRight } from 'react-icons/bi'
-
 function Pricing_Item() {
 
   const [ dataItemMenu, setDataItemMenu ] = useState([])
-  const [ collectItemPcParts, setCollectItemPcParts] = useState([])
+  const [ collectItemPcParts, setCollectItemPcParts ] = useState([])
+  const [ collectItemPcBrands, setCollectItemPcBrands ] = useState([])
+  const [loading, setLoading] = useState(true)
   const [ currentPage, setCurrentPage] = useState(1)
-  const [originalData, setOriginalData] = useState([])
+  const  [originalData, setOriginalData] = useState([])
   const itemsPerPage = 6
-
 
   useEffect(() => {
     async function fetchData() {
       try {
+          setLoading(true);
           const response = await fetch('http://localhost:3000/pcparts', {
             method: 'GET',
             headers: {
@@ -20,39 +21,62 @@ function Pricing_Item() {
                 "X-Powered-By": "Express",
                 "Content-Type": "application/json; charset=utf-8"
             },
-        })
+        }, 700)
         if(!response.ok){
           throw new Error('Network response was not ok')
         }
         const resultItem = await response.json()
         setDataItemMenu(resultItem)
-
-        setDataItemMenu(resultItem);
+        setLoading(false);
         setOriginalData(resultItem);
         setCollectItemPcParts([...new Set(resultItem.map((item) => item.namemodel))])
 
+        setCollectItemPcBrands([...new Set(resultItem.map((item) => item.brandname))])
+
       } catch (error) {
         console.log('Error: ', error)
+        setLoading(false);
       }
     }
 
     fetchData()
   }, [])
 
-
   const partsMenuFilter = (itemDataParts) => {
     if (itemDataParts === "ALL") {
-      setDataItemMenu(originalData);
+      setLoading(true)
+      setTimeout(() => { 
+        setDataItemMenu(originalData)
+        setLoading(false)
+      }, 700);
     } else {
       const filterDataParts = originalData.filter((item) => item.namemodel === itemDataParts)
-      setDataItemMenu(filterDataParts);
+      setLoading(true)
+      setTimeout(() => { 
+        setDataItemMenu(filterDataParts)
+        setLoading(false)
+      }, 700);
     }
   }
   
 
+  const partsMenuFilterBrand = (itemDataPartsBrand) => {
+    if (itemDataPartsBrand === "ALL") {
+      setLoading(true)
+      setTimeout(() => { 
+        setDataItemMenu(originalData);
+        setLoading(false)
+      }, 700);
+    } else {
+      const filterDatabrand = originalData.filter((item) => item.brandname === itemDataPartsBrand)
+      setLoading(true)
+      setTimeout(() => { 
+        setDataItemMenu(filterDatabrand)
+        setLoading(false)
+      }, 700);
+    }
+  }
   
-
-
   const handleClick = (type) => {
     const totalPages = Math.ceil(dataItemMenu.length / itemsPerPage)
     if (type === 'prev') {
@@ -93,29 +117,24 @@ function Pricing_Item() {
                     <a  onClick={() => partsMenuFilter(item)} className=" cursor-pointer my-1">
                       {item}
                     </a>
-                ))}
-                     
+                    ))}
+  
 
-                     
-                      {/* <a className="py-1" href="">GRAPICS CARDS</a>
-                      <a className="py-1" href="">HARD DRIVES and SSD</a>
-                      <a className="py-1" href="">MEMORY / RAM</a>
-                      <a className="py-1" href="">POWER SUPPLIES</a>
-                      <a className="py-1" href="">COMPUTER CASE</a> */}
+
                    </div>
                    <div className="pricing_shop_sidebar_tittle mt-5 mb-3">
                       <h1 className="italic">Brand Parts</h1>
                     </div>
                    <div className='pricing_shop_sidebar_button'>
-                      <a className="py-1" href="">ASUS</a>
-                      <a className="py-1" href="">GIGABYTE</a>
-                      <a className="py-1" href="">MSI</a>
-                      <a className="py-1" href="">ASROCK</a>
-                      <a className="py-1" href="">AMD</a>
-                      <a className="py-1" href="">INTEL</a>
-                      <a className="py-1" href="">PATRIOT</a>
-                      <a className="py-1" href="">CORSAIR</a>
-                      <a className="py-1" href="">CRUCIAL</a>
+                    <a onClick={() => partsMenuFilterBrand("ALL")} className=" cursor-pointer my-1" >
+                        ALL
+                      </a> 
+                      {collectItemPcBrands.map((item) => (
+                        // eslint-disable-next-line react/jsx-key
+                        <a  onClick={() => partsMenuFilterBrand(item)} className=" cursor-pointer my-1">
+                          {item}
+                        </a>
+                      ))}
                    </div>
                    <div className="pricing_shop_sidebar_tittle mt-5 mb-3">
                       <h1 className="italic">Pricing</h1>
@@ -131,44 +150,52 @@ function Pricing_Item() {
             <div className="pricing_shop_items">
               <div className="pricing_shop_menubar_section">
 
+              {loading ? (
+                  <div className="shop_pricing_loading grid">
+                    <div className="loader self-center m-auto">
+                      <div className="circle"></div>
+                      <div className="circle"></div>
+                      <div className="circle"></div>
+                      <div className="circle"></div>
+                  </div>
+                  </div>
+              ) : (
                 <div className="pricing_shop_menubar_section_row grid">
-                  {displayedItems.map((item, id )=> {
-                    return(
-                      <div className="pricing_shop_menubar_section_item m-auto py-6" key={id}>
-                        <div className="pricing_menu_img">
-                          <img className="m-auto" src={item.image} alt="" />
-                        </div>
 
-                        <div className="pricing_menu_price_qty pt-6 flex justify-between mx-12">
-                          <h4>QTY <span>{item.quantity}</span></h4>
-                          <h4>&#8369;<span>{item.price}</span></h4>
-                        </div>
-
-                        <div className="pricing_menu_productname mx-8 my-6">
-                          <h1 className="text-center">{item.productname}</h1>
-                        </div>
+          
+                {displayedItems.map((item, id )=> {
+                  return(
+                    <div className="pricing_shop_menubar_section_item m-auto py-6" key={id}>
+                      <div className="pricing_menu_img">
+                        <img className="m-auto" src={item.image} alt="" />
                       </div>
-                    )
-                  })}
-                </div>
+
+                      <div className="pricing_menu_price_qty pt-6 flex justify-between mx-12">
+                        <h4>QTY <span>{item.quantity}</span></h4>
+                        <h4>&#8369;<span>{item.price}</span></h4>
+                      </div>
+
+                      <div className="pricing_menu_productname mx-8 my-6">
+                        <h1 className="text-center">{item.productname}</h1>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
-
-
-              <div className="text-center pricing_shop_next_page">
+              )}
+              </div>
+              <div className="text-center pricing_shop_next_page items-center flex justify-center">
               <button onClick={() => handleClick('prev')} disabled={currentPage === 1}><BiChevronLeft  className="mx-10 pricing_icon_np"/></button>
               {/* <span>{`Page ${currentPage} of ${totalPages}`}</span> */}
+              <a className="mx-5">1</a>
+              <a className="mx-5">2</a>
+              <a className="mx-5">3</a>
+              <a className="mx-5">4</a>
+              <a className="mx-5">5</a>
               <button onClick={() => handleClick('next')} disabled={currentPage === totalPages}><BiChevronRight className="mx-10 pricing_icon_np"/></button>
               </div>
             </div>
-
-
-
-
-
-        
         </div>
-
-   
       </section>
   )
 }
