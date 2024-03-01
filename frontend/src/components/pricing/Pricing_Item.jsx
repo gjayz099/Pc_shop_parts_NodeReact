@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { BiSearchAlt2, BiChevronLeft , BiChevronRight } from 'react-icons/bi'
+import { BiSearchAlt2, BiChevronLeft , BiChevronRight, BiCartAlt } from 'react-icons/bi'
 function Pricing_Item() {
 
   const [ dataItemMenu, setDataItemMenu ] = useState([])
@@ -14,7 +14,7 @@ function Pricing_Item() {
     async function fetchData() {
       try {
           setLoading(true);
-          const response = await fetch('http://localhost:3000/pcparts', {
+          const response = await fetch('http://localhost:3000/api/pcparts', {
             method: 'GET',
             headers: {
                 // "X-Api-Key" : "5325325yygdfgg7532578ghtrhtr782532",
@@ -171,8 +171,10 @@ function Pricing_Item() {
                 {displayedItems.map((item, id )=> {
                   return(
                     <div className="pricing_shop_menubar_section_item m-auto py-6" key={id}>
-                      <div className="pricing_menu_img">
+                      <div className="pricing_menu_img ">
                         <img className="m-auto" src={item.image} alt="" />
+                        <BiCartAlt className="cart_buy_parts"/>
+                        {/* <h1 className="cart_buy_parts">dsad</h1> */}
                       </div>
 
                       <div className="pricing_menu_price_qty pt-6 flex justify-between mx-12">

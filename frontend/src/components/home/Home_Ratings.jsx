@@ -10,7 +10,7 @@ function Home_Ratings() {
         
         async function fetchData() {
             try{
-                const response = await fetch('http://localhost:3000/pcparts', {
+                const response = await fetch('http://localhost:3000/api/pcparts', {
                     method: 'GET',
                     headers: {
                         // "X-Api-Key" : "5325325yygdfgg7532578ghtrhtr782532",

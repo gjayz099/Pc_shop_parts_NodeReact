@@ -573,6 +573,7 @@ ul li a{
 .pricing_shop_menubar_section_row{
     grid-template-columns: repeat(3, 1fr);
     min-height: 115vh;
+    gap: 5px;
 }
 @media (max-width:1069px ) {
     .pricing_shop_menubar_section_row{
@@ -588,9 +589,36 @@ ul li a{
     height: 400px;
     margin-top: 0;
 }
+.pricing_menu_img{
+    position: relative;
+    overflow: hidden;
+    transition: 0.9s ease-in-out;
+
+}
 .pricing_shop_menubar_section_item .pricing_menu_img img{
     width: 200px;
     height: 200px;
+}
+.pricing_menu_img .cart_buy_parts{
+    color: var(--blackColor);
+    position: absolute;
+    text-align: center;
+    justify-items: center;
+    left: 45%;
+    font-size: 2.8rem;
+    transition: 0.9s ease-in-out;
+    background: #ccccce;
+    border-radius: 10px;
+    padding: 3px;
+    text-align: center;
+    overflow: hidden;
+    bottom: -50px;
+    cursor: pointer;
+}
+.pricing_menu_img:hover .cart_buy_parts{
+    bottom: 10px;
+    transition: 0.9s ease-in-out;
+
 }
 .pricing_menu_price_qty  h4 span{
     font-style: italic;

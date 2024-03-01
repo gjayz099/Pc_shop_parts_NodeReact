@@ -2,57 +2,39 @@ const { sequelize } = require('../DB/dbConnect')
 const { DataTypes } = require('sequelize')
 
 
-const PcParts = sequelize.define('pcparts', {
-    namemodel: {
+const AccountAdmin = sequelize.define('accountadmins',{
+    adminname : {
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-
-    brandname: {
+    adminuser : {
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    productname: {
+    adminpass : {
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    quantity: {
-        type: DataTypes.INET,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        }
-    },
-    price: {
+    conadminpassword:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    image: {
+    role:{
         type: DataTypes.STRING,
         allowNull: false,
-        validate:{
-            notEmpty: true
-        }
+        defaultValue: "admin" // Admin or Workers 
     },
-    ratings: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        }
-    },
-
 })
-module.exports = PcParts
+module.exports = AccountAdmin
