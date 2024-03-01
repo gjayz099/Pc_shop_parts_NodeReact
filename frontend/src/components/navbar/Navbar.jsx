@@ -47,7 +47,7 @@ function Navbar() {
                 <Link onClick={menuclickMenu} className='mx-3' to='/contact' >Contact</Link>
             </li>
             <li>
-                <Link onClick={menuclickMenu} className='mx-3' >Login</Link>
+                <Link onClick={menuclickMenu} className='mx-3'to='/login' >Login</Link>
             </li>
         </ul>
         <div className={navMenu? 'menuHum openMenu' : 'menuHum'} >

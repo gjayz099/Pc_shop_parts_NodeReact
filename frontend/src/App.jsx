@@ -4,6 +4,7 @@ import Home from "./components/home/Home"
 import Pricing from "./components/pricing/Pricing"
 import Team from "./components/team/Team"
 import Contact from "./components/contact/Contact"
+import Login from "./components/login/Login"
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
     <Route path='/pricing' element={<Pricing/>}/>
     <Route path='/team' element={<Team/>}/>
     <Route path='/Contact' element={<Contact/>}/>
+
+    <Route path='/Login' element={<Login/>}/>
     </Routes> 
 
   </Router> 

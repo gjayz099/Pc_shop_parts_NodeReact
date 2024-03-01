@@ -326,9 +326,6 @@ ul li a{
 .text_product_ratings h1{
     font-family: var(--fontTitle);
 }
-
-
-
 /* footer */
 .footer_container{
     max-width: 100%;
@@ -410,7 +407,6 @@ ul li a{
         grid-template-columns: repeat(1, 4fr);
     }
 }
-
 /* All Header */
 .all_header{
     max-width: 100%;
@@ -426,9 +422,6 @@ ul li a{
     color: var(--whiteColor);
     font-weight: 700;
 }
-
-
-
 /* Pricing */
 .pricing_shop_tittle h1{
     text-align: center;
@@ -455,16 +448,6 @@ ul li a{
         gap: 1rem;
     }
 }
-/* @media (max-width: 761px) {
-    .pricing_shop_items:nth-child(1){
-        width: 180px;
-    }
-} */
-
-
-
-
-
 .search_pricing{
     padding: .5rem 1rem;
     width: 275px;
@@ -583,7 +566,6 @@ ul li a{
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
   }
-  
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -602,7 +584,6 @@ ul li a{
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
 .pricing_shop_menubar_section_item{
     height: 400px;
     margin-top: 0;
@@ -636,8 +617,6 @@ ul li a{
     font-family: var(--fontParg);
     font-size: .9rem;
 }
-
-
 .pricing_shop_next_page .pricing_icon_np{
     font-size: 2.3rem;
     opacity: .9;
@@ -648,7 +627,6 @@ ul li a{
     }
     
 }
-
 /*  */
 .team_section{
     height: auto;
@@ -664,9 +642,6 @@ ul li a{
         margin: 10rem 2rem ;
     }
 }
-
-
-
 .team_item{
     border-radius: 20px;
     box-shadow: 5px 6px 15px var(--primary);
@@ -707,6 +682,140 @@ ul li a{
     color: #eb1eeb;
     font-size: 1.5rem;
 }
+.contact_us_row{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (max-width: 719px) {
+    .contact_us_row{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        margin: auto;
+    }
+}
+.contact_us_tittle_parag h1{
+    font-size: 1.8rem;
+    font-family: var(--fontTitle);
+}
+.contact_us_tittle_parag h4{
+    font-family: var(--fontParg);
+    padding-right: 10rem;
+}
+@media (max-width: 719px) {
+    .contact_us_tittle_parag h4{
+        font-family: var(--fontParg);
+        padding-right: 3rem;
+    }
+    .contact_us_tittle_parag{
+        padding-left: 1rem ;
+    }
+}
+.contact_us_items_office{
+    grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 817px) {
+    .contact_us_items_office{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (max-width: 1279px) {
+    .contact_us_row{
+        padding: 0 0px;
+    }
+ 
+}
+.contact_us_items_office h2{
+    font-size: 1.2rem;
+}
+.contact_us_items_office h2{
+    font-family: var(--fontTitle);
+}
+.contact_us_items_office h3{
+    font-family: var(--fontParg);
+}
+.contact_us_items_office{
+    padding-left: 1rem;
+}
+.contact_us_form{
+    max-width: 90%;
+}
+@media (max-width: 719px) {
+    .contact_us_form{
+        margin: auto;
+    }
+}
+.contact_us_form .input_contact_us{
+    box-shadow: 1px 1px 1px 1px var(--secondary);
+}
+.contact_us_form .submit_contact_us{
+    width: 30%;
+    background-color: #515ad3d0; 
+    cursor: pointer;
+    margin: auto;
+    border-radius: 5px;
+    padding:.6rem;
+}
+@media (max-width: 719px) {
+    .contact_us_form{
+        padding-left: 0;
+    }
 
+}
+.login_container{
+    max-width: 100%;
+    height: 100vh;
+    background: radial-gradient(rgba(0, 0, 0, 0.7),rgba(0,0,0,.7)),url('../img/footer_image.jpg');
+    background-position: center;
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+}
+.item_login{
+    min-width: 25%;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 30px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.text_login_item h1{
+    font-family: var(--fontTitle);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.item_form_login label{
+    font-family: var(--fontParg);
+}
 
-
+.item_form_login input{
+    height: 45px;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.486);
+    backdrop-filter: blur(20px);
+    outline: none;
+}
+.item_form_login_btn .BTN_login{
+    font-size: 1.3rem;
+    width: 40%;
+    box-shadow: .5px .2px 2px 1px var(--whiteColor);
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+}
+.item_form_login_btn .BTN_login:hover{
+    background: #515ad388;
+}
+.item_form_login:nth-child(1) .login_icon {
+    position: absolute;
+    right: 60px;
+    top: 47%;
+    transform: translateY(-50%);
+    font-size: 30px;
+  }
+  .item_form_login:nth-child(2) .login_icon {
+    position: absolute;
+    right: 60px;
+    top: 67%;
+    transform: translateY(-50%);
+    font-size: 30px;
+  }
