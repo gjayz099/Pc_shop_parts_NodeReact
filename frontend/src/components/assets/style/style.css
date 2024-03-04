@@ -797,6 +797,26 @@ ul li a{
     background-repeat: no-repeat no-repeat;
     background-size: cover;
 }
+.error_message.hide_msg_login{
+    background-color: var(--whiteColor);
+    width: 280px;
+    transition: 0.5s ease-in-out;
+    padding: 1rem 1rem;
+    left: 0;
+    right: 0;
+    top: 5px;
+    margin-left: 20px;
+    z-index: 99;
+}
+.error_message{
+    width: 280px;
+    background-color: var(--whiteColor);
+    transition: 0.5s ease-in-out;
+    top: -60px;
+    padding: 1rem 1rem;
+    margin-left: 20px;
+}
+
 .item_login{
     min-width: 25%;
     background-color: transparent;

@@ -45,7 +45,7 @@ const PostAccountAdminLogin = asyncHandler(async(req, res) => {
 
         const accountadmin = await AccountAdmin.findOne({ where: { username } })
         if (!accountadmin) {
-            res.status(401).json({ message: 'Account Is Not Found' })
+            res.status(404).json({ message: 'Account Is Not Found' })
         }
         const isPasswordMatch = await bcrypt.compare(password, accountadmin.password)
 
@@ -69,6 +69,7 @@ const PostAccountAdminLogin = asyncHandler(async(req, res) => {
         role: accountadmin.role,
         username: accountadmin.username,
         password: accountadmin.password,
+        useToken
     })
 
     } catch (error) {
