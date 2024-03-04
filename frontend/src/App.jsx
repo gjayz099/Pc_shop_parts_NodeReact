@@ -5,6 +5,7 @@ import Pricing from "./components/pricing/Pricing"
 import Team from "./components/team/Team"
 import Contact from "./components/contact/Contact"
 import Login from "./components/login/Login"
+import Signup from "./components/signup/Signup"
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Route path='/contact' element={<Contact/>}/>
 
     <Route path='/login' element={<Login/>}/>
+    <Route path='/signup' element={<Signup/>}/>
     </Routes> 
 
   </Router> 

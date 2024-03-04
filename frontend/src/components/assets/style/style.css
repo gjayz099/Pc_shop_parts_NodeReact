@@ -797,7 +797,7 @@ ul li a{
     background-repeat: no-repeat no-repeat;
     background-size: cover;
 }
-.error_message.hide_msg_login{
+.error_message.hide_msg_login_signup{
     background-color: var(--whiteColor);
     width: 280px;
     transition: 0.5s ease-in-out;
@@ -860,10 +860,85 @@ ul li a{
     transform: translateY(-50%);
     font-size: 30px;
   }
-  .item_form_login:nth-child(2) .login_icon {
+.item_form_login:nth-child(2) .login_icon {
     position: absolute;
     right: 60px;
     top: 67%;
     transform: translateY(-50%);
     font-size: 30px;
   }
+/* Signup */
+  .singup_container{
+    max-width: 100%;
+    height: 100vh;
+    background: radial-gradient(rgba(0, 0, 0, 0.7),rgba(0,0,0,.7)),url('../img/footer_image.jpg');
+    background-position: center;
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+  }
+
+.item_signup{
+    min-width: 25%;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 30px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.text_signup_item h1{
+    font-family: var(--fontTitle);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.item_form_signup label{
+    font-family: var(--fontParg);
+}
+
+.item_form_signup input{
+    height: 45px;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.486);
+    backdrop-filter: blur(20px);
+    outline: none;
+}
+.item_form_signup_btn .BTN_signup{
+    font-size: 1.3rem;
+    width: 40%;
+    box-shadow: .5px .2px 2px 1px var(--whiteColor);
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+}
+.item_form_signup_btn .BTN_signup:hover{
+    background: #515ad388;
+}
+.item_form_signup:nth-child(1) .signup_icon {
+    position: absolute;
+    right: 60px;
+    top: 33%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    z-index: 99;
+}
+.item_form_signup:nth-child(2) .signup_icon {
+    position: absolute;
+    right: 60px;
+    top: 47%;
+    transform: translateY(-50%);
+    font-size: 30px;
+}
+.item_form_signup:nth-child(3) .signup_icon {
+    position: absolute;
+    right: 60px;
+    top: 62%;
+    transform: translateY(-50%);
+    font-size: 30px;
+}
+.item_form_signup:nth-child(4) .signup_icon {
+    position: absolute;
+    right: 60px;
+    top: 77%;
+    transform: translateY(-50%);
+    font-size: 30px;
+}

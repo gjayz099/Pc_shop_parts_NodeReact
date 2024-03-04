@@ -173,7 +173,13 @@ function Pricing_Item() {
                     <div className="pricing_shop_menubar_section_item m-auto py-6" key={id}>
                       <div className="pricing_menu_img ">
                         <img className="m-auto" src={item.image} alt="" />
-                        <BiCartAlt className="cart_buy_parts"/>
+                        {item.quantity === 0 ? (
+                          null
+                          // <BiCartAlt className="cart_buy_parts disabled"  onClick={null}  />
+                        ):(
+                          <BiCartAlt className="cart_buy_parts" />
+                        )}
+             
                         {/* <h1 className="cart_buy_parts">dsad</h1> */}
                       </div>
 

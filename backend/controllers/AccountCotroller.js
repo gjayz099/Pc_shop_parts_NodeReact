@@ -10,11 +10,11 @@ const PostAccountAdminSignup = asyncHandler(async(req, res) => {
         const { password, conpassword } = req.body
         const existingUsername = await AccountAdmin.findOne({where : {username: req.body.username}})
         if(existingUsername){
-            return res.status(404).json({message: "This Is Alraidy Taking"})
+            return res.status(401).json({message: "This Is Already Taking"})
         }
 
         if(password !== conpassword) {
-            return res.status(404).json({message : "Password and Confirm Password do not match"})
+            return res.status(402).json({message : "Password and Confirm Password do not match"})
         }
         const saltRounds = 10
         const hashedPassword = await bcrypt.hash(password, saltRounds)
@@ -25,7 +25,7 @@ const PostAccountAdminSignup = asyncHandler(async(req, res) => {
             conpassword:  hashedPassword,
             role: req.body.role,
         })
-        res.status(200).json(adminAcount)
+        res.status(201).json(adminAcount)
     }catch (error) {
         console.error(error)
         res.status(500).send({
