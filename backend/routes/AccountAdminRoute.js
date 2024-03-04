@@ -1,25 +1,29 @@
 const express = require('express')
-const { PostAccountAdmin, GetAccountAdmin, GetAccountAdminID, PutAccountAdminID, DeleteAccountAdminID} = require('../controllers/AccountCotroller')
-const router = express.Router()
+const { GetAccountAdmin, GetAccountAdminID, PutAccountAdminID, DeleteAccountAdminID, PostAccountAdminSignup, PostAccountAdminLogin} = require('../controllers/AccountCotroller')
+const userRouter = express.Router()
 
 
 
 // API ROUTES ACCOUNT ADMIN
 
-// ---GET API
-router.post('/', PostAccountAdmin)
+// ---Post Login UP API
+userRouter.post('/login', PostAccountAdminLogin)
+
+// ---Post SIGN UP API
+userRouter.post('/signup', PostAccountAdminSignup)
 
 // ---GET ALL API
-router.get('/', GetAccountAdmin)
+userRouter.get('/', GetAccountAdmin)
 
 // ---GET ID API
-router.get('/:id', GetAccountAdminID)
+userRouter.get('/:id', GetAccountAdminID)
 
 // ---PUT ID API
-router.put('/:id', PutAccountAdminID)
+userRouter.put('/:id', PutAccountAdminID)
 
 // ---DELETE ID API
-router.delete('/:id', DeleteAccountAdminID)
+userRouter.delete('/:id', DeleteAccountAdminID)
 
 
-module.exports = router
+
+module.exports = userRouter

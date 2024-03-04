@@ -6,6 +6,7 @@ import Team from "./components/team/Team"
 import Contact from "./components/contact/Contact"
 import Login from "./components/login/Login"
 
+
 function App() {
 
   return (
@@ -17,9 +18,9 @@ function App() {
     <Route path='/' element={<Home/>}/>
     <Route path='/pricing' element={<Pricing/>}/>
     <Route path='/team' element={<Team/>}/>
-    <Route path='/Contact' element={<Contact/>}/>
+    <Route path='/contact' element={<Contact/>}/>
 
-    <Route path='/Login' element={<Login/>}/>
+    <Route path='/login' element={<Login/>}/>
     </Routes> 
 
   </Router> 

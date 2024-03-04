@@ -3,28 +3,28 @@ const { DataTypes } = require('sequelize')
 
 
 const AccountAdmin = sequelize.define('accountadmins',{
-    adminname : {
+    name:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    adminuser : {
+    username:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    adminpass : {
+    password:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    conadminpassword:{
+    conpassword:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{
@@ -34,7 +34,7 @@ const AccountAdmin = sequelize.define('accountadmins',{
     role:{
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "admin" // Admin or Workers 
+        defaultValue: "admin" // Admin or User
     },
 })
 module.exports = AccountAdmin
