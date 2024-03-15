@@ -60,7 +60,7 @@ const PostAccountAdminLogin = asyncHandler(async(req, res) => {
             userpass: password
         },
         'RANDOM-TOKEN',{
-            expiresIn: '24h',
+            expiresIn: '1h',
         }
     )
     res.status(201).send({
@@ -73,13 +73,24 @@ const PostAccountAdminLogin = asyncHandler(async(req, res) => {
     })
 
     } catch (error) {
-        console.error(error);
+        console.error(error)
         res.status(500).send({
             message: 'Login failed',
             error: error.message
-        });
+        })
     }
-});
+})
+
+
+// POST LAGOUT
+const PostAccountAdminLogout = asyncHandler(async(req, res) => {
+    if (req.isAuthenticated()) {
+        req.logout(); // Logout the user
+        res.status(200).json({ message: 'Admin logout successful' });
+    } else {
+        res.status(401).json({ message: 'Unauthorized' });
+    }
+})
 
 
 // GET ALL ACCOUNT
@@ -148,5 +159,6 @@ module.exports = {
     PutAccountAdminID,
     DeleteAccountAdminID,
     PostAccountAdminSignup,
-    PostAccountAdminLogin
+    PostAccountAdminLogin,
+    PostAccountAdminLogout
 }

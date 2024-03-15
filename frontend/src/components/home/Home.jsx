@@ -5,10 +5,12 @@ import Home_Image_Conteainer from './Home_Image_Conteainer'
 import Home_Service from './Home_Service'
 import Home_Ratings from "./Home_Ratings"
 import Footer from "../footer/Footer"
+import Navbar from '../navbar/Navbar'
 
 function Home() {
   return (
     <>
+    <Navbar/>
     <Home_Header/>
     <Home_About_Us/>
     <Home_Ratings/>

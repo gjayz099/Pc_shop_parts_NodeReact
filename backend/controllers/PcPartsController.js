@@ -1,7 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const PcParts = require('../models/PcPartsModel')
 
-
 // POST ONE PC PARTS
 const PostPcParts = asyncHandler(async(req, res) => {
     try {

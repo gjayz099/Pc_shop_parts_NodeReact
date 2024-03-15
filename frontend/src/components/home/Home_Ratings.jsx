@@ -3,36 +3,50 @@ import {BiSolidStar} from 'react-icons/bi'
 
 function Home_Ratings() {
     
-    const [ ratingsData, setRatingsData] = useState([])
-
+    const [ratingsData, setRatingsData] = useState([]);
 
     useEffect(() => {
-        
         async function fetchData() {
-            try{
+            try {
                 const response = await fetch('http://localhost:3000/api/pcparts', {
                     method: 'GET',
                     headers: {
-                        // "X-Api-Key" : "5325325yygdfgg7532578ghtrhtr782532",
+                        'Authorization': 'Bearer YOUR_TOKEN',
                         "X-Powered-By": "Express",
-                        "Content-Type": "application/json; charset=utf-8"
                     },
-                })
-                if(!response.ok){
+
+                });
+                if (!response.ok) {
                     throw new Error('Network response was not ok')
                 }
-                const resultdata = await response.json();
-                const filteredData = resultdata.filter(item => item.ratings === 5);
-
-                setRatingsData(filteredData);
-                console.log(resultdata)
-            }catch (error) {
+                const resultdata = await response.json()
+                // Ensure resultdata is an array
+                if (!Array.isArray(resultdata)) {
+                    throw new Error('Response data is not an array')
+                }
+                const filteredData = resultdata.filter(item => item.ratings === 5)
+                const randomItems = [];
+                const maxItems = Math.min(filteredData.length, 4);
+                while (randomItems.length < maxItems) {
+                    const randomIndex = Math.floor(Math.random() * filteredData.length)
+                    const randomItem = filteredData[randomIndex]
+                    if (!randomItems.includes(randomItem)) {
+                        randomItems.push(randomItem)
+                        console.log(randomItem)
+                    }
+                }
+                setRatingsData(randomItems)
+            } catch (error) {
                 console.log('Error: ', error)
             }
         }
         fetchData()
+    }, []);
+    
 
-    }, [])
+
+
+    
 
     return (
         <section className="home_ratings_container my-24">

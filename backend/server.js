@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const { connectDb } = require('./DB/dbConnect')
 const pcpartsRoutes = require('./routes/PcPartsRoute')
 const accountadminRoutes = require('./routes/AccountAdminRoute')
+
 const app = express()
 var cors = require('cors')
 
@@ -26,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(express.json())
+
+
 
 // ------ Product ROUTES
 app.use('/api/pcparts', pcpartsRoutes)

@@ -3,8 +3,6 @@ const { PostPcParts, GetPcParts, GetIDPcParts, PutPcPartsID, DeletePcPartsID } =
 const router = express.Router();
 
 
-// API ROUTES PC PARTS
-
 // ---GET API
 router.post('/', PostPcParts)
 

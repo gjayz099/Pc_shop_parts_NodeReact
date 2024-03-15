@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import { BsPersonFill, BsKey } from 'react-icons/bs'
 
@@ -66,7 +67,6 @@ export default function Signup() {
                 <h1 className="italic uppercase mb-2 text-white">Signup Acount</h1>
             </div>
             <form className="form_sinup" onSubmit={handleSubmit}>
-        
                 <div className="item_form_signup grid">
                     <label className="my-1 uppercase italic text-white">Name</label>
                     <input type="username" className="text-white py-1 px-3" value={name} onChange={(e) => setName(e.target.value)} />
@@ -79,19 +79,16 @@ export default function Signup() {
                 </div>
                 <div className="item_form_signup grid">
                     <label className="my-1 uppercase italic text-white">Password</label>
-                    <input type="username" className="text-white py-1 px-3" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <BsPersonFill className="text-white signup_icon"/>
+                    <input type="password" className="text-white py-1 px-3" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <BsKey className=" text-white signup_icon"/>
                 </div>
                 <div className="item_form_signup grid">
                     <label className="my-1 uppercase italic text-white">Confirm Password</label>
-                    <input type="username" className="text-white py-1 px-3" value={conpassword} onChange={(e) => setConpassword(e.target.value)}/>
+                    <input type="password" className="text-white py-1 px-3" value={conpassword} onChange={(e) => setConpassword(e.target.value)}/>
                     <BsKey className=" text-white signup_icon"/>
-            
                 </div>
-                <div className="item_form_signup_btn m-auto text-center">
-                    
-                    <button type="submit" className="cursor-pointer italic text-white mt-10 m-auto BTN_signup text-center">Sign Up</button>
-                
+                <div className="item_form_signup_btn m-auto text-center flex">
+                    <button type="submit" className="cursor-pointer italic text-white mt-10 m-auto BTN_signup text-center">Submit</button>
                 </div>
 
             </form>

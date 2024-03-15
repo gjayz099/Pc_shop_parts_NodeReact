@@ -34,7 +34,7 @@ const AccountAdmin = sequelize.define('accountadmins',{
     role:{
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "admin" // Admin or User
+        defaultValue: "User" // Admin or User
     },
 })
 module.exports = AccountAdmin

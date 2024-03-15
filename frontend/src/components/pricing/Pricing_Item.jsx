@@ -35,7 +35,7 @@ function Pricing_Item() {
 
       } catch (error) {
         console.log('Error: ', error)
-        setLoading(false);
+        setLoading(false)
       }
     }
 
@@ -64,7 +64,7 @@ function Pricing_Item() {
     if (itemDataPartsBrand === "ALL") {
       setLoading(true)
       setTimeout(() => { 
-        setDataItemMenu(originalData);
+        setDataItemMenu(originalData)
         setLoading(false)
       }, 700);
     } else {
