@@ -41,7 +41,7 @@ function Navbar() {
 
     
   return (
-    <nav className={StickyNav? 'stikyscrool flex items-center overflow-hidden text-center absolute justify-between': 'overflow-hiddenitems-center flex text-center absolute justify-between'}>
+    <nav className={StickyNav? 'nav_main stikyscrool flex items-center overflow-hidden text-center absolute justify-between': 'nav_main overflow-hiddenitems-center flex text-center absolute justify-between'}>
         <div className='logo uppercase italic'>
             <a href="">GJAYZ<span> PC PARTS</span></a>
         </div>

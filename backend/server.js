@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const { connectDb } = require('./DB/dbConnect')
 const pcpartsRoutes = require('./routes/PcPartsRoute')
-const accountadminRoutes = require('./routes/AccountAdminRoute')
+const accountRoutes = require('./routes/AccountRoute')
 
 const app = express()
 var cors = require('cors')
@@ -35,7 +35,7 @@ app.use('/api/pcparts', pcpartsRoutes)
 
 
 // ------ Account ROUTES
-app.use('/api/accountadmins', accountadminRoutes)
+app.use('/api/accounts', accountRoutes)
 
 
 app.listen(PORT, () => {

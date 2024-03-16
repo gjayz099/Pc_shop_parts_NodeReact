@@ -1,8 +1,9 @@
 const { sequelize } = require('../DB/dbConnect')
 const { DataTypes } = require('sequelize')
+const Country = require('./CountryModel')
 
-
-const AccountAdmin = sequelize.define('accountadmins',{
+// Establish Model Buy Item
+const Account = sequelize.define('accounts',{
     name:{
         type: DataTypes.STRING,
         allowNull: false,
@@ -34,7 +35,12 @@ const AccountAdmin = sequelize.define('accountadmins',{
     role:{
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "User" // Admin or User
+        defaultValue: "User"
     },
 })
-module.exports = AccountAdmin
+
+// Establish one-to-one association between Account and BuyItem models
+Country.hasOne(Account, { foreignKey: 'countriesid', onDelete: 'CASCADE', onUpdate: 'CASCADE'})
+Account.belongsTo(Country)
+
+module.exports = Account

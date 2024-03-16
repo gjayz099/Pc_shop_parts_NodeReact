@@ -1,7 +1,7 @@
 const { sequelize } = require('../DB/dbConnect')
 const { DataTypes } = require('sequelize')
 
-
+// Establish Model Buy Item
 const PcParts = sequelize.define('pcparts', {
     namemodel: {
         type: DataTypes.STRING,
@@ -10,7 +10,6 @@ const PcParts = sequelize.define('pcparts', {
             notEmpty: true
         }
     },
-
     brandname: {
         type: DataTypes.STRING,
         allowNull: false,
