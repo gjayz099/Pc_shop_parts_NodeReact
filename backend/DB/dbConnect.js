@@ -15,7 +15,6 @@ const sequelize = new Sequelize( process.env.DATABASEDB, process.env.ROOTDB, pro
 )
 
 
-
 // Establishes a connection to a database using Sequelize.
 const connectDb = async () => {
   try {

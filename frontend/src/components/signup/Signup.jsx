@@ -7,10 +7,10 @@ import { BsPersonFill, BsKey } from 'react-icons/bs'
 export default function Signup() {
     const [ errorMessage, setErrorMessage] = useState('')
     const [ errMsghide, setErrMsghide] = useState(false)
-    const [name, setName] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [conpassword, setConpassword] = useState('');
+    const [ name, setName] = useState('')
+    const [ username, setUsername] = useState('')
+    const [ password, setPassword] = useState('')
+    const [ conpassword, setConpassword] = useState('')
 
 
     useEffect(() => {
@@ -41,17 +41,17 @@ export default function Signup() {
             if(response.status == 201){
                 console.log(data)
             } else if (response.status === 401) {
-                setErrMsghide(true);
-                setErrorMessage("This Is Already Taken");
+                setErrMsghide(true)
+                setErrorMessage("This Is Already Taken")
                 setTimeout(() => {
-                    setErrMsghide(false);
+                    setErrMsghide(false)
                 }, 2500);
             } else {
-                setErrMsghide(true);
-                setErrorMessage("password not match");
+                setErrMsghide(true)
+                setErrorMessage("password not match")
                 setTimeout(() => {
-                    setErrMsghide(false);
-                }, 2500);
+                    setErrMsghide(false)
+                }, 2500)
             }
         } catch (error) {
             console.log(error)

@@ -1,13 +1,12 @@
-import Content from "./content/Content"
-import Sidebar from "./sidebar/Sidebar"
-import '../dashboard/style/style.css'
+import Navbar from "./Navbar"
 
 const User = () => {
   return (
-    <div className="flex">
-      <Sidebar/>
-      <Content/>
-    </div>
+   <div>
+    <Navbar/>
+
+
+   </div>
   )
 }
 

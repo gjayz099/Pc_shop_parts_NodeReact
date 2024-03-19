@@ -37,10 +37,21 @@ const Account = sequelize.define('accounts',{
         allowNull: false,
         defaultValue: "User"
     },
+    countryId:{
+        type: DataTypes.INTEGER, 
+        allowNull: false,
+        validate:{
+            notEmpty: true,
+        },
+        references:{
+            model: Country
+        }
+    }
+
 })
 
 // Establish one-to-one association between Account and BuyItem models
-Country.hasOne(Account, { foreignKey: 'countriesid', onDelete: 'CASCADE', onUpdate: 'CASCADE'})
+Country.hasMany(Account, { foreignKey: 'countryId', onDelete: 'CASCADE', onUpdate: 'CASCADE'})
 Account.belongsTo(Country)
 
 module.exports = Account

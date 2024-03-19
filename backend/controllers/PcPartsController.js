@@ -37,7 +37,7 @@ const GetPcParts = asyncHandler(async(req, res) => {
 // GET ONE ID PC PARTS
 const GetIDPcParts = asyncHandler(async(req, res) => {
     try {
-        Parts
+        // Declire pc part id
         const pcparts_id = req.params.id
 
         // Find Parts Id In Database
@@ -45,9 +45,9 @@ const GetIDPcParts = asyncHandler(async(req, res) => {
         if(!pcparts){
             return res.status(404).json({message:  `Cannot Find PC Parts ID ${pcparts_id}`})
         }
+
         // Response PC parts
         res.status(201).json(pcparts)
-        
     // Error Response
     }catch (error) {
         console.error(error.message)
