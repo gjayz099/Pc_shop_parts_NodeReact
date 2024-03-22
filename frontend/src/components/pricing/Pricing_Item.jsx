@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react"
-import { BiSearchAlt2, BiChevronLeft , BiChevronRight, BiCartAlt } from 'react-icons/bi'
-function Pricing_Item() {
+import { BiSearchAlt2, BiChevronLeft , BiChevronRight,BiCart } from 'react-icons/bi'
+import { useDispatch } from "react-redux"
+import { addToCart } from "../redux/slice/cartSlice"
+import CartItem from "./CartItem"
+
+
+function Pricing_Item( {id, image, productname, brandname, price} ) {
 
   const [ dataItemMenu, setDataItemMenu ] = useState([])
   const [ collectItemPcParts, setCollectItemPcParts ] = useState([])
@@ -9,6 +14,17 @@ function Pricing_Item() {
   const [ currentPage, setCurrentPage] = useState(1)
   const  [originalData, setOriginalData] = useState([])
   const itemsPerPage = 6
+
+  const [openCart, setOpenCart ] = useState(false)
+
+
+  const dispatch = useDispatch()
+
+
+  const cartOpen  = () =>{
+    setOpenCart(!openCart)
+  }
+
 
   useEffect(() => {
     async function fetchData() {
@@ -92,11 +108,20 @@ function Pricing_Item() {
 
 
     return (
-      <section className="pricing_shop_container xl:mx-28 lg:mx-10 mx-4 sm:mx-10">
+      <section className="relative">
+        <div className={openCart? "cart__right absolute z-50 opencart mt-5" : "cart__right absolute z-50 mt-5"}>
+          <CartItem />
+        </div>
+   
+
+
+      <div className="pricing_shop_container xl:mx-28 lg:mx-10 mx-4 sm:mx-10">
         <div className="pricing_shop_tittle">
           <h1 className="m-auto py-16 italic">Pricing Product</h1>
         </div>
-
+        <button className="cart_icon" onClick={cartOpen}>
+          <BiCart />
+        </button>
         <div className="pricing_shop_row">
             <div className="pricing_shop_items">
               <div className="pricing_shop_sidebar_section">
@@ -173,15 +198,13 @@ function Pricing_Item() {
                     <div className="pricing_shop_menubar_section_item m-auto py-6" key={id}>
                       <div className="pricing_menu_img ">
                         <img className="m-auto" src={item.image} alt="" />
-                        {item.quantity === 0 ? (
-                          null
-                          // <BiCartAlt className="cart_buy_parts disabled"  onClick={null}  />
-                        ):(
-                          <BiCartAlt className="cart_buy_parts" />
-                        )}
-             
-                        {/* <h1 className="cart_buy_parts">dsad</h1> */}
                       </div>
+                      <button onClick={() => {
+                        dispatch(addToCart({
+                          id: item.id, image: item.image, productname: item.productname, brandname: item.brandname, price: item.price
+                        }))
+          
+                      }} className="add_cart bg-blue-gray-900 w-10 text-center text-white">+</button>
 
                       <div className="pricing_menu_price_qty pt-6 flex justify-between mx-12">
                         <h4>QTY <span>{item.quantity}</span></h4>
@@ -209,7 +232,11 @@ function Pricing_Item() {
               </div>
             </div>
         </div>
+      </div>
+
       </section>
+
+
   )
 }
 

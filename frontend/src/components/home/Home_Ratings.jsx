@@ -24,7 +24,7 @@ function Home_Ratings() {
                 if (!Array.isArray(resultdata)) {
                     throw new Error('Response data is not an array')
                 }
-                const filteredData = resultdata.filter(item => item.ratings === 5)
+                const filteredData = resultdata.filter( item => item.ratings === 5 && item.id)
                 const randomItems = [];
                 const maxItems = Math.min(filteredData.length, 4);
                 while (randomItems.length < maxItems) {
@@ -32,7 +32,7 @@ function Home_Ratings() {
                     const randomItem = filteredData[randomIndex]
                     if (!randomItems.includes(randomItem)) {
                         randomItems.push(randomItem)
-                        console.log(randomItem)
+                        // console.log(randomItem)
                     }
                 }
                 setRatingsData(randomItems)

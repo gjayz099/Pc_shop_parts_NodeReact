@@ -32,7 +32,7 @@ const PcParts = sequelize.define('pcparts', {
         }
     },
     price: {
-        type: DataTypes.STRING,
+        type: DataTypes.INET,
         allowNull: false,
         validate:{
             notEmpty: true
