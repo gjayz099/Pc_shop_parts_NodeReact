@@ -15,7 +15,7 @@ function Home_Ratings() {
                         "X-Powered-By": "Express",
                     },
 
-                });
+                })
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
                 }

@@ -40,11 +40,11 @@ const cartSlice = createSlice({
             return {
                 ...state,
                 cart: filteredCart
-            };
+            }
         },
-        removeItem: (state, action) =>{
-            const removeItem = state.cart.filter((item) => item.id !== action.payload)
-            state.cart = removeItem
+        removeItem: (state, action) => {
+            const removeItemCart = state.cart.filter((item) => item.id !== action.payload);
+            state.cart = removeItemCart
         }
     }
 })

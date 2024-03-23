@@ -9,6 +9,7 @@ function Pricing() {
     <>
       <Navbar/>
       <All_Header content="Pricing Item"/>
+      
       <Pricing_Item/>
       <Footer/>
     </>

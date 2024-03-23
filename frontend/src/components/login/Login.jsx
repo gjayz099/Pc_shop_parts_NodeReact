@@ -8,6 +8,7 @@ import { Link, useNavigate  } from 'react-router-dom'
 const Login = () => {
     const [ username, setUsername ] = useState('')
     const [ password, setPassword ] = useState('')
+    
     const [ errMsg, setErrMsg ] = useState("")
     const [ errMsghide, setErrMsghide] = useState(false)
     const navigate = useNavigate()
@@ -28,7 +29,7 @@ const Login = () => {
         e.preventDefault()
         
         try {
-            const response = await fetch("http://localhost:3000/api/accountadmins/login", {
+            const response = await fetch("http://localhost:3000/api/accounts/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -40,9 +41,10 @@ const Login = () => {
             if(response.status == 201){
                 console.log(data)
 
-                login( data.username)
+                login( data.username, data.id)
+                // console.log(login( data.username, data.id))
                 navigate('/user/dashboard')
-                
+          
             }else if(response.status == 404){
                 setErrMsghide(true)
                 setErrMsg("Login failed. Please try again later")

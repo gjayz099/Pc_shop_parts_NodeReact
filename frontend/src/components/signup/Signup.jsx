@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-
 import { BsPersonFill, BsKey } from 'react-icons/bs'
 
 
@@ -24,7 +22,7 @@ export default function Signup() {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-            const response = await fetch("http://localhost:3000/api/accountadmins/signup", {
+            const response = await fetch("http://localhost:3000/api/accounts/signup", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

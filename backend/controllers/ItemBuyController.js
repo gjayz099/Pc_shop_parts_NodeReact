@@ -5,16 +5,53 @@ const Account = require('../models/AccountModel')
 
 // Post Buy Item
 const PostBuyItem = asyncHandler(async(req, res) => {
-    try{
-        //  Buy Item Create in Database
-        const buyitems = await BuyItem.create(req.body)
+    try {
+        // Declire All Parameter
+        const { accountId, price, productname, quantity, date, time } = req.body
 
-        // Response Buy Item
-        res.status(200).json(buyitems)
+        // console.log('Received product names:', productname)
+        // console.log('Received quantities:', quantity)
 
-    // Error Response  
-    }catch(error){
-        console.log(error)
+        // Find Buy Item all Paremeter In Database
+        if (!accountId || !price || !productname || !quantity || !date || !time) {
+            return res.status(400).json({ message: 'Missing required fields' })
+        }
+
+        if (productname.length !== quantity.length || 
+            productname.length !== price.length) {
+            // console.log('Product names and quantities have different lengths:', productname.length, quantity.length, price.length, date.length, time.length)
+            return res.status(400).json({ message: 'Product names and quantities must have the same length' })
+     
+        }
+
+
+        const buyItems = [];
+
+        for (let i = 0; i < productname.length; i++) {
+            const newBuyItem = {
+                accountId: accountId,
+                productname: productname[i],
+                quantity: quantity[i],
+                price: price[i],
+                date: date[i],
+                time: time[i],  
+            }
+            buyItems.push(newBuyItem)
+        }
+
+        // if buyitems not emty
+        if(!buyItems.length){
+            // console.log('Erroor')
+            return res.status(400).json({ message: 'Missing required fields' })
+        }
+        const buyItemsCrete =  await BuyItem.bulkCreate(buyItems)
+
+        res.status(200).json([buyItemsCrete,{ message: 'Buy items added successfully' }])
+
+ 
+   
+    } catch (error) {
+        console.error(error);
         res.status(500).json({ message: 'Internal Server Error' })
     }
 
@@ -25,23 +62,8 @@ const GetBuyItem = asyncHandler(async (req, res) => {
     try {
 
         // PC Parts object to Find in the database
-        const buyitems = await BuyItem.findAll({
-            attributes: ['qty'], 
-            include:[
-                {
-                    model: PcParts,
-                    attributes: [
-                        "productname", "brandname", "namemodel", "price"
-                    ]
-                },
-                {
-                    model: Account,
-                    attributes: [
-                        "id", "name",
-                    ]
-                }
-            ]
-        })
+        const buyitems = await BuyItem.findAll({})
+        
 
         // Response Buy Item
         res.status(201).json(buyitems)

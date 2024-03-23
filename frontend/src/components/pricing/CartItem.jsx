@@ -1,28 +1,67 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch ,useSelector } from 'react-redux'
 import { incrementQuantity, decrementQuantity, removeItem } from '../redux/slice/cartSlice'
-import { useSelector } from 'react-redux'
-
 
 
 const CartItem = () => {
-    const cart = useSelector((state) => state.cart)
+
 
     const dispatch = useDispatch()
+
+    const handleSubmit = async () => {
+        try {
+            // const productname = cart.map(item => item.productname)
+            const quantity = cart.map(item => item.quantity)
+            const price = cart.map(item => item.price)
+            const productname = cart.map(item => item.productname)
+            const currentDate = new Date().toISOString().split('T')[0]
+            const currentTime = new Date().getTime()
+
+            const get = parseInt(localStorage.getItem('Id'), 10);
+
+            const response = await fetch('http://localhost:3000/api/buyitems', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ accountId: get, price: price, productname: productname, quantity: quantity, date: currentDate, time: currentTime}),
+     
+            })
+
+            if (response.ok) {
+                remove()
+                const res = await response.json()
+                console.log(res)
+                console.log('Checkout successful')
+            } else {
+                console.error('Failed to checkout')
+            }
+        } catch (error) {
+            console.error('Error:', error)
+        }
+    }
+
+    const cart = useSelector((state) => state.cart)
 
     const getTotalQuantity = () => {
         let totalQuantity = 0
         cart.forEach(item => {
             totalQuantity += item.quantity
-        });
+        })
         return totalQuantity
+    }
+
+    const remove = () =>{
+        cart.forEach(item => {
+            dispatch(removeItem(item.id))
+        })
+        
     }
 
     const getTotalPrice = () => {
         let totalPrice = 0
         cart.forEach(item => {
             totalPrice += item.price * item.quantity
-            console.log(totalPrice)
+            // console.log(totalPrice)
         });
         return totalPrice
     }
@@ -61,12 +100,14 @@ const CartItem = () => {
                     <p className="total__p">
                         Total Price: &#8369; {getTotalPrice()} 
                     </p>
-                    <button className='checkOut'>CHECK OUT</button> 
+                    <button onClick={() =>{handleSubmit()}}  className='checkOut'>CHECK OUT</button>
+
+           
                </div>
         </div>
 
         
-    );
-};
+    )
+}
 
 export default CartItem;

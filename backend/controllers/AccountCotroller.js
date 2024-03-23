@@ -86,6 +86,7 @@ const PostAccountLogin = asyncHandler(async(req, res) => {
     // Sign in Response
     res.status(201).send({
         message: 'Login Successful',
+        id: account.id,
         name: account.name,
         role: account.role,
         username: account.username,

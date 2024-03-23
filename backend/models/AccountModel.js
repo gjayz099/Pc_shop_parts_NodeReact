@@ -40,6 +40,7 @@ const Account = sequelize.define('accounts',{
     countryId:{
         type: DataTypes.INTEGER, 
         allowNull: false,
+        defaultValue: 1,
         validate:{
             notEmpty: true,
         },

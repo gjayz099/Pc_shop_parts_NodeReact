@@ -1007,7 +1007,34 @@ ul li a{
     border-radius: 10px;
 }
 
+/* dash */
+.title_text h1{
+    font-size: 1.8rem;
+    font-family: var(--fontTitle);
+    font-weight: 700;
+    color: var(--blackColor);
+}
+.item_data{
+    padding: .9rem 1rem;
+    box-shadow: .3rem .3rem .2rem #0000007e;
+    border: #00000027 1px solid;
 
-
-
+}
+.pname{
+    text-align: center;
+    height: 70px;
+}
+.pname h1{
+    font-size: .9rem;
+    font-family: var(--fontmain);
+}
+.date_time h6{
+    font-size: .9rem;
+    padding: 1rem 0;
+}
+@media (max-width: 546px) {
+    .row-items{
+        margin: 0 1.5rem;
+    }
+}
 

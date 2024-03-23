@@ -1,6 +1,7 @@
 const { sequelize } = require('../DB/dbConnect')
 const { DataTypes } = require('sequelize')
 
+
 // Establish Model Buy Item
 const PcParts = sequelize.define('pcparts', {
     namemodel: {

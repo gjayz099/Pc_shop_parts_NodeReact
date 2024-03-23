@@ -5,7 +5,7 @@ import { addToCart } from "../redux/slice/cartSlice"
 import CartItem from "./CartItem"
 
 
-function Pricing_Item( {id, image, productname, brandname, price} ) {
+function Pricing_Item( ) {
 
   const [ dataItemMenu, setDataItemMenu ] = useState([])
   const [ collectItemPcParts, setCollectItemPcParts ] = useState([])
@@ -19,6 +19,7 @@ function Pricing_Item( {id, image, productname, brandname, price} ) {
 
 
   const dispatch = useDispatch()
+
 
 
   const cartOpen  = () =>{
@@ -105,11 +106,11 @@ function Pricing_Item( {id, image, productname, brandname, price} ) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const displayedItems = dataItemMenu.slice(startIndex, startIndex + itemsPerPage)
   const totalPages = Math.ceil(dataItemMenu.length / itemsPerPage)
-
+  const log = localStorage.getItem('isLogin')
 
     return (
-      <section className="relative">
-        <div className={openCart? "cart__right absolute z-50 opencart mt-5" : "cart__right absolute z-50 mt-5"}>
+      <section className="relative overflow-hidden">
+        <div className={openCart? "cart__right absolute z-50 opencart mt-5" : "cart__right absolute z-50 mt-5 "}>
           <CartItem />
         </div>
    
@@ -119,6 +120,7 @@ function Pricing_Item( {id, image, productname, brandname, price} ) {
         <div className="pricing_shop_tittle">
           <h1 className="m-auto py-16 italic">Pricing Product</h1>
         </div>
+
         <button className="cart_icon" onClick={cartOpen}>
           <BiCart />
         </button>
@@ -191,21 +193,23 @@ function Pricing_Item( {id, image, productname, brandname, price} ) {
                   </div>
               ) : (
                 <div className="pricing_shop_menubar_section_row grid">
-
-          
                 {displayedItems.map((item, id )=> {
                   return(
                     <div className="pricing_shop_menubar_section_item m-auto py-6" key={id}>
                       <div className="pricing_menu_img ">
                         <img className="m-auto" src={item.image} alt="" />
                       </div>
-                      <button onClick={() => {
-                        dispatch(addToCart({
-                          id: item.id, image: item.image, productname: item.productname, brandname: item.brandname, price: item.price
-                        }))
-          
-                      }} className="add_cart bg-blue-gray-900 w-10 text-center text-white">+</button>
-
+                      {!log ? (
+                        <div></div>
+                      ) : (
+                        
+                         <button onClick={() => {
+                          dispatch(addToCart({
+                            id: item.id, image: item.image, productname: item.productname, brandname: item.brandname, price: item.price
+                          }))
+            
+                        }} className="add_cart bg-blue-gray-900 w-10 text-center text-white">+</button>
+                      )}
                       <div className="pricing_menu_price_qty pt-6 flex justify-between mx-12">
                         <h4>QTY <span>{item.quantity}</span></h4>
                         <h4>&#8369;<span>{item.price}</span></h4>
